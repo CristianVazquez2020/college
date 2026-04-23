@@ -1,0 +1,82 @@
+# ============================================================
+# INTRO TO EXCEL — English Lesson & Assignment Descriptions
+# ============================================================
+#
+# HOW TO USE:
+#   - Write your description on the line(s) below each label.
+#   - Labels look like [Lesson 1] or [Assignment 2].
+#   - Descriptions can span multiple lines — just don't leave
+#     a blank line in the middle of one description.
+#   - Lines starting with # are comments and are ignored.
+#   - When you're done editing, run this from the project root:
+#
+#       python tools/update_descriptions.py
+#
+# ============================================================
+
+[Lesson 1] # Excel Editions
+A general overview of the similarities and differences between the various versions of Excel, including desktop, web, and mobile editions.
+
+[Lesson 2] # The Interface
+Description coming soon.
+
+[Lesson 3] # Open, Save & Create Workbooks
+Description coming soon.
+
+[Lesson 4] # Data Types
+An exploration of the different data types that exist in Excel.
+
+[Lesson 5] # Formatting Cells
+An overview of the basics of formatting cells.
+
+[Lesson 6] # Insert & Delete Rows, Columns & Cells
+Description coming soon.
+
+[Lesson 7] # Reference Types
+An explanation of the different ways to make references to cells.
+
+[Lesson 8] # Named Ranges
+Learn about how you can make referencing easier by naming ranges and using the name manager.
+
+[Lesson 9] # Mathematical Operators
+Learn how to use mathematical operators in Excel, as well as popular mathematics functions.
+
+[Lesson 10] # Boolean Operators
+Learn what Boolean is and how to use the Boolean operators and functions.
+
+[Lesson 11] # Data Cleanup Functions
+A list of functions that are useful for cleaning up data.
+
+[Lesson 12] # Sort & Filter
+Description coming soon.
+
+[Lesson 13] # Charts
+Description coming soon.
+
+[Lesson 14] # Tables
+Description coming soon.
+
+[Lesson 15] # Intro to Pivot Tables
+An introduction to what Pivot Tables are, what they are used for, and how to make them.
+
+[Lesson 16] # Normal Tables vs Pivot Tables
+Explanation of the differences and similarities between a Normal Table and a Pivot Table.
+
+[Lesson 17] # Page Setup & Print Options
+Description coming soon.
+
+
+[Assignment 1]
+Description coming soon.
+
+[Assignment 2]
+Description coming soon.
+
+[Assignment 3]
+Description coming soon.
+
+[Assignment 4]
+Description coming soon.
+
+[Assignment 5]
+Description coming soon.

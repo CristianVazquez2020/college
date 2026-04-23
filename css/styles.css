@@ -1,0 +1,540 @@
+/* ============================================================
+   Hancock College Courses — styles.css
+   ============================================================ */
+
+:root {
+    --navy:        #1b2e24;
+    --blue:        #2d6048;
+    --blue-light:  #3d8062;
+    --gold:        #b87820;
+    --gold-light:  #d49840;
+    --bg:          #f4f5f2;
+    --card:        #ffffff;
+    --text:        #1a231e;
+    --text-muted:  #566058;
+    --border:      #dce4dd;
+    --shadow:      0 2px 8px rgba(27, 46, 36, 0.10);
+    --radius:      8px;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+header {
+    background: var(--navy);
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.site-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+}
+
+.site-title .accent {
+    color: var(--gold);
+}
+
+.site-subtitle {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin-top: 0.1rem;
+    letter-spacing: 0.01em;
+}
+
+/* ── Disclaimer bar ─────────────────────────────────────── */
+.disclaimer-bar {
+    background: #fffbf0;
+    border-bottom: 1px solid #e8d8a0;
+    text-align: center;
+    padding: 0.5rem 2rem;
+    font-size: 0.8rem;
+    color: #6b5820;
+}
+
+/* ── Navigation bar ─────────────────────────────────────── */
+nav {
+    background: var(--blue);
+    border-bottom: 3px solid var(--gold);
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.nav-inner a {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    transition: color 0.15s, background 0.15s;
+    border-radius: 4px 4px 0 0;
+}
+
+.nav-inner a:hover,
+.nav-inner a.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* ── Main content wrapper ───────────────────────────────── */
+main {
+    flex: 1;
+    max-width: 1100px;
+    width: 100%;
+    margin: 2.5rem auto;
+    padding: 0 2rem;
+}
+
+/* ── Hero banner (homepage only) ────────────────────────── */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    color: #ffffff;
+    padding: 3rem 2.5rem;
+    border-radius: var(--radius);
+    margin-bottom: 2.5rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(26, 58, 92, 0.18);
+}
+
+.hero h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.hero p {
+    font-size: 1.05rem;
+    opacity: 0.85;
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+/* ── Section heading (homepage) ─────────────────────────── */
+.section-heading {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+}
+
+/* ── Course grid (homepage) ─────────────────────────────── */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.course-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.course-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(26, 58, 92, 0.14);
+}
+
+.course-card-num {
+    width: 42px;
+    height: 42px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.course-card h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+    flex-grow: 1;
+}
+
+.card-arrow {
+    margin-top: 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* ── Course page: breadcrumb ────────────────────────────── */
+.breadcrumb {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+}
+
+.breadcrumb a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin: 0 0.4rem;
+    opacity: 0.5;
+}
+
+/* ── Course page: page title ────────────────────────────── */
+.page-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.02em;
+}
+
+/* ── Course description block ───────────────────────────── */
+.description-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 2.25rem;
+    box-shadow: var(--shadow);
+}
+
+.description-block h2 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+}
+
+.description-block p {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ── Lessons / Assignments section block ────────────────── */
+.content-section {
+    margin-bottom: 2.5rem;
+}
+
+.content-section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.content-section-title .count-badge {
+    background: var(--blue);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    padding: 0.15rem 0.55rem;
+}
+
+/* ── Accordion (details / summary) ─────────────────────── */
+details {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 0.6rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+details[open] {
+    box-shadow: 0 4px 14px rgba(26, 58, 92, 0.11);
+    border-color: var(--blue-light);
+}
+
+summary {
+    padding: 0.9rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    color: var(--navy);
+    gap: 1rem;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary .toggle-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: var(--blue);
+    font-weight: 400;
+    transition: background 0.15s;
+}
+
+details[open] summary .toggle-icon {
+    background: var(--blue);
+    color: #fff;
+    border-color: var(--blue);
+}
+
+.accordion-body {
+    padding: 1rem 1.25rem 1.25rem;
+    border-top: 1px solid var(--border);
+}
+
+.accordion-body .item-description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.9rem;
+    font-style: italic;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--blue);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.45rem 1.1rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s;
+}
+
+.download-btn:hover {
+    background: var(--navy);
+}
+
+.download-btn svg {
+    flex-shrink: 0;
+}
+
+/* ── Course resources bar ───────────────────────────────── */
+.course-resources {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.course-resources-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    margin-right: 0.25rem;
+    flex-shrink: 0;
+}
+
+/* ── Language tabs ──────────────────────────────────────── */
+.lang-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0;
+}
+
+.lang-tab-btn {
+    padding: 0.55rem 1.25rem;
+    border: 1px solid var(--border);
+    border-bottom: none;
+    background: var(--bg);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    margin-bottom: -2px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.lang-tab-btn.active {
+    background: var(--card);
+    color: var(--navy);
+    border-color: var(--border);
+    border-bottom-color: var(--card);
+    box-shadow: 0 -2px 0 var(--gold);
+}
+
+.lang-tab-btn:hover:not(.active) {
+    background: var(--card);
+    color: var(--text);
+}
+
+.lang-tab-panel {
+    display: none;
+}
+
+.lang-tab-panel.active {
+    display: block;
+}
+
+/* ── General docs section ───────────────────────────────── */
+.general-docs {
+    background: #f8f9f7;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.general-docs-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-right: 0.25rem;
+}
+
+/* ── Download button variants ───────────────────────────── */
+.download-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+}
+
+.download-btn.docx  { background: #2b579a; }
+.download-btn.docx:hover  { background: #1e3f70; }
+.download-btn.xlsx  { background: #217346; }
+.download-btn.xlsx:hover  { background: #155230; }
+.download-btn.pdf   { background: #c0392b; }
+.download-btn.pdf:hover   { background: #922b21; }
+
+.download-btn .ext-badge {
+    background: rgba(255,255,255,0.22);
+    border-radius: 3px;
+    padding: 0 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+footer {
+    background: var(--navy);
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.82rem;
+    margin-top: auto;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 680px) {
+    .header-inner {
+        padding: 1rem 1.25rem;
+    }
+
+    .nav-inner {
+        padding: 0 1.25rem;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    main {
+        padding: 0 1.25rem;
+        margin: 1.5rem auto;
+    }
+
+    .hero {
+        padding: 2rem 1.25rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-title {
+        font-size: 1.4rem;
+    }
+}

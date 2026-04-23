@@ -1,0 +1,43 @@
+# ============================================================
+# INTRO TO EXCEL — Descripciones de Lecciones y Tareas (Español)
+# ============================================================
+#
+# CÓMO USAR:
+#   - Escribe tu descripción en la(s) línea(s) debajo de cada
+#     etiqueta.
+#   - Las etiquetas se ven así: [Leccion 1] o [Tarea 2].
+#   - Las descripciones pueden abarcar varias líneas, pero no
+#     dejes una línea en blanco en el medio de una descripción.
+#   - Las líneas que comienzan con # son comentarios e ignorados.
+#   - Cuando termines, ejecuta esto desde la raíz del proyecto:
+#
+#       python tools/update_descriptions.py
+#
+# ============================================================
+
+[Leccion 1]
+Descripción próximamente.
+
+[Leccion 2]
+Descripción próximamente.
+
+[Leccion 3]
+Descripción próximamente.
+
+[Leccion 4]
+Descripción próximamente.
+
+[Tarea 1]
+Descripción próximamente.
+
+[Tarea 2]
+Descripción próximamente.
+
+[Tarea 3]
+Descripción próximamente.
+
+[Tarea 4]
+Descripción próximamente.
+
+[Tarea 5]
+Descripción próximamente.

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ':*)",
+      "Bash(python3 -m pip install pandas odfpy openpyxl --quiet)",
+      "Bash(xargs sed:*)",
+      "Bash(python3 -)",
+      "Bash(python3 tools/update_descriptions.py)"
+    ]
+  }
+}
