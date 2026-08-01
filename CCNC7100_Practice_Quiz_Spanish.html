@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCNC 7100 — Cuestionario de Práctica</title>
+<style>
+  :root{
+    --accent:#1F3864; --accent2:#2E4A7d; --light:#EEF1F7; --band:#F4F6FA;
+    --grey:#595959; --line:#C9D3E6; --green:#1E7A46; --greenbg:#E7F4EC;
+    --red:#B23A48; --redbg:#FBECED; --warm:#FBF3E6; --warmbar:#C9A44A; --ink:#22314F;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI",Calibri,Helvetica,Arial,sans-serif;color:#1c2333;
+    margin:0;background:#eef0f5;line-height:1.5;}
+  .wrap{max-width:900px;margin:0 auto;padding:24px 20px 80px;}
+  header.head{border-bottom:4px solid var(--accent);padding-bottom:14px;margin-bottom:8px;}
+  .eyebrow{font-size:13px;font-weight:700;color:var(--grey);letter-spacing:.02em;}
+  h1{color:var(--accent);font-size:30px;margin:4px 0 2px;}
+  .subtitle{color:var(--grey);font-style:italic;font-size:16px;}
+  .card{background:#fff;border:1px solid #e2e6ef;border-radius:10px;padding:18px 20px;
+    margin:16px 0;box-shadow:0 1px 2px rgba(20,30,60,.05);}
+  .note{background:var(--light);border-left:6px solid var(--accent);border-radius:6px;
+    padding:14px 16px;margin:14px 0;font-size:15px;}
+  .note b{color:var(--accent);}
+  table.bd{border-collapse:collapse;width:100%;margin-top:8px;font-size:14px;}
+  table.bd th,table.bd td{border:1px solid var(--line);padding:6px 10px;text-align:left;}
+  table.bd th{background:var(--accent);color:#fff;font-weight:600;}
+  table.bd td.num{text-align:center;width:64px;font-weight:700;color:var(--accent);}
+  h2.sec{color:var(--accent);font-size:22px;margin:34px 0 4px;border-bottom:2px solid var(--line);
+    padding-bottom:6px;}
+  .seccount{font-size:14px;font-weight:400;color:var(--grey);}
+  .q{padding:14px 0;border-bottom:1px solid #eef0f5;}
+  .q:last-child{border-bottom:none;}
+  .qtext{font-weight:600;margin-bottom:8px;}
+  .qtext .qn{color:var(--accent);margin-right:6px;}
+  .opt{display:block;border:1px solid #dde2ec;border-radius:8px;padding:9px 12px;margin:6px 0;
+    cursor:pointer;transition:background .12s,border-color .12s;font-size:15px;}
+  .opt:hover{background:var(--band);}
+  .opt input{margin-right:10px;}
+  .opt.correct{background:var(--greenbg);border-color:var(--green);}
+  .opt.wrong{background:var(--redbg);border-color:var(--red);}
+  .opt .tick{float:right;font-weight:700;}
+  .opt.correct .tick{color:var(--green);}
+  .opt.wrong .tick{color:var(--red);}
+  .bar{position:sticky;top:0;z-index:5;background:#fff;border:1px solid #e2e6ef;border-radius:10px;
+    padding:12px 16px;margin:16px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+    box-shadow:0 2px 6px rgba(20,30,60,.08);}
+  button{font-family:inherit;font-size:15px;font-weight:600;border-radius:8px;border:1px solid var(--accent);
+    padding:9px 16px;cursor:pointer;background:var(--accent);color:#fff;}
+  button.ghost{background:#fff;color:var(--accent);}
+  button:hover{background:var(--accent2);}
+  button.ghost:hover{background:var(--light);}
+  #score{margin-left:auto;font-weight:700;color:var(--accent);font-size:17px;}
+  footer{color:var(--grey);font-size:13px;text-align:center;margin-top:30px;}
+  @media print{.bar{position:static;box-shadow:none;} button{display:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <div class="eyebrow">CCNC 7100 — Computers and You: Level 1</div>
+    <h1>Cuestionario de Práctica</h1>
+    <div class="subtitle">53 preguntas de opción múltiple</div>
+  </header>
+
+  <div class="note">
+    <b>Acerca de este cuestionario.</b> Las preguntas de opción múltiple están agrupadas por las áreas
+    de contenido del curso, y la cantidad refleja los temas que se enfatizaron en clase. Elige una
+    respuesta para cada pregunta y luego presiona <b>Revisar respuestas</b> para calificarte. El
+    cuestionario es igual cada vez que se abre.
+    <table class="bd" aria-label="Desglose de preguntas">
+      <tr><th>Sección</th><th>Preguntas</th></tr>
+      <tr><td>1 · Introducción y Generalidades</td><td class="num">8</td></tr>
+      <tr><td>2 · Terminología, Teclado y Manejo del Ratón</td><td class="num">15</td></tr>
+      <tr><td>3 · El Escritorio de Windows y sus Componentes</td><td class="num">11</td></tr>
+      <tr><td>4 · Internet: Términos, Navegación y Búsquedas</td><td class="num">12</td></tr>
+      <tr><td>5 · Procesamiento de Texto (Microsoft Word)</td><td class="num">6</td></tr>
+      <tr><td>Pregunta final</td><td class="num">1</td></tr>
+    </table>
+  </div>
+
+  <div class="bar">
+    <button onclick="checkAll()">Revisar respuestas</button>
+    <button class="ghost" onclick="resetAll()">Reiniciar</button>
+    <span id="score"></span>
+  </div>
+
+  <div id="mcq"></div>
+
+  <footer>CCNC 7100 · Computers and You: Level 1 — Cuestionario de Práctica.</footer>
+</div>
+
+<script>
+/* ---------------- PREGUNTAS DE OPCIÓN MÚLTIPLE ---------------- */
+const sections = [
+ {title:"1 · Introducción y Generalidades", qs:[
+  {q:"¿Cuáles son las cuatro tareas básicas que realiza toda computadora?",
+   o:["Escribir, imprimir, escanear, copiar","Entrada, procesamiento, almacenamiento y salida","Sumar, restar, multiplicar, dividir","Iniciar, ejecutar, guardar, cerrar"],c:1},
+  {q:"¿Qué parte de la computadora realiza el “pensamiento” o procesamiento?",
+   o:["El monitor","El ratón","El CPU","La impresora"],c:2},
+  {q:"Mostrar los resultados en la pantalla es un ejemplo de ¿cuál paso?",
+   o:["Entrada","Procesamiento","Almacenamiento","Salida"],c:3},
+  {q:"“PC” significa:",
+   o:["Centro de procesamiento","Computadora personal","Computadora pública","Estuche portátil"],c:1},
+  {q:"¿Cuál es la “mejor” computadora para comprar?",
+   o:["Siempre la más cara","Siempre una de escritorio","Siempre la más nueva","La que mejor se ajuste a tus necesidades"],c:3},
+  {q:"Las partes físicas de una computadora que puedes tocar se llaman:",
+   o:["Software","Sitios web","Hardware","Archivos"],c:2},
+  {q:"¿Qué hace la memoria (RAM) de la computadora?",
+   o:["Guarda tus archivos para siempre, incluso cuando se apaga la energía","Contiene lo que estás trabajando en este momento y se borra cuando se apaga la energía","Conecta la computadora al internet","Muestra imágenes en la pantalla"],c:1},
+  {q:"¿Dónde se guardan tus archivos de forma permanente, incluso cuando se apaga la computadora?",
+   o:["En la memoria (RAM)","En el almacenamiento (el disco duro)","En el monitor","En el ratón"],c:1},
+ ]},
+ {title:"2 · Terminología, Teclado y Manejo del Ratón", qs:[
+  {q:"Un programa (también llamado aplicación) es:",
+   o:["Una parte física de la computadora que puedes tocar","Una herramienta en la computadora creada para hacer una tarea, como escribir o navegar por la web","Un tipo de cable","Una imagen en el escritorio"],c:1},
+  {q:"El programa que se usa para explorar la web se llama:",
+   o:["Procesador de texto","Navegador web","Palabra de búsqueda","Sistema operativo"],c:1},
+  {q:"“La nube” se refiere a:",
+   o:["Un software del clima","Un protector de pantalla","Guardar tus archivos en computadoras lejanas, a las que se llega por internet","Un tipo de teclado"],c:2},
+  {q:"La flecha que se mueve en la pantalla cuando mueves el ratón se llama:",
+   o:["El cursor o puntero","Un ícono","Un botón","Una pestaña"],c:0},
+  {q:"¿Cuál botón del ratón es el principal que usas la mayor parte del tiempo?",
+   o:["El botón derecho","El botón izquierdo","La rueda de desplazamiento","Ninguno"],c:1},
+  {q:"Un doble clic se usa generalmente para:",
+   o:["Borrar algo","Abrir algo","Apagar la computadora","Escribir una letra"],c:1},
+  {q:"Si te quedas sin espacio sobre la mesa al mover el ratón, debes:",
+   o:["Presionar más fuerte","Reiniciar la computadora","Levantar el ratón y volver a colocarlo en el centro","Rendirte"],c:2},
+  {q:"Un clic derecho abre:",
+   o:["Un documento nuevo","Un pequeño menú de opciones (un menú contextual)","El internet","Una letra mayúscula"],c:1},
+  {q:"¿Para qué sirve la rueda de desplazamiento del ratón?",
+   o:["Para escribir números","Para desplazarse hacia arriba y hacia abajo en una página","Para apagar la computadora","Para hacer letras mayúsculas"],c:1},
+  {q:"Antes de escribir texto en un cuadro de texto, primero debes:",
+   o:["Hacer clic en el cuadro de texto","Reiniciar la computadora","Guardar el archivo","Imprimir la página"],c:0},
+  {q:"¿Qué hace la tecla Backspace (Retroceso)?",
+   o:["Agrega un espacio entre palabras","Borra el carácter que está justo a la izquierda del cursor","Hace una letra mayúscula","Guarda tu trabajo"],c:1},
+  {q:"¿Para qué sirve la barra espaciadora?",
+   o:["Para borrar letras","Para insertar un espacio entre palabras","Para hacer letras mayúsculas","Para abrir un programa"],c:1},
+  {q:"Para escribir una sola letra mayúscula, tú:",
+   o:["Presionas Caps Lock dos veces","Mantienes presionada la tecla Shift y presionas la letra","Presionas la barra espaciadora","Presionas Enter"],c:1},
+  {q:"El atajo Ctrl + C significa:",
+   o:["Cerrar","Copiar","Cancelar","Centrar"],c:1},
+  {q:"El atajo Ctrl + Z significa:",
+   o:["Zoom (acercar)","Deshacer","Cero","Cerrar"],c:1},
+ ]},
+ {title:"3 · El Escritorio de Windows y sus Componentes", qs:[
+  {q:"La pantalla principal que ves cuando se inicia Windows se llama:",
+   o:["El escritorio","El navegador","Una carpeta","La cinta de opciones"],c:0},
+  {q:"La franja que se encuentra en la parte inferior de la pantalla es:",
+   o:["La barra de título","La barra de tareas","La barra de desplazamiento","La barra de menús"],c:1},
+  {q:"El botón minimizar:",
+   o:["Cierra el programa por completo","Oculta la ventana mientras el programa sigue funcionando","Borra el archivo","Imprime la página"],c:1},
+  {q:"Para mover una ventana, haces clic y arrastras su:",
+   o:["Barra de título","Rueda de desplazamiento","Ícono","Barra de tareas"],c:0},
+  {q:"La fila de palabras Archivo, Edición y Ver, cerca de la parte superior de un programa, es:",
+   o:["La barra de tareas","La barra de menús","La barra de título","El escritorio"],c:1},
+  {q:"Cuando cambias a otra ventana, la primera ventana:",
+   o:["Se cierra","Se elimina","Permanece abierta, lista para que regreses","Se imprime"],c:2},
+  {q:"La herramienta de Windows que abres para explorar tus carpetas y archivos es:",
+   o:["El Explorador de archivos","La Papelera de reciclaje","Un navegador web","La barra de tareas"],c:0},
+  {q:"La carpeta ya creada, destinada a guardar los archivos que creas, se llama:",
+   o:["Descargas","Documentos","Papelera","Windows"],c:1},
+  {q:"El mejor hábito para no perder tu trabajo es:",
+   o:["Guardar solo cuando terminas","Guardar temprano y con frecuencia","Nunca guardar","Apagar la computadora con frecuencia"],c:1},
+  {q:"¿Puedes guardar un archivo de imagen (foto) en la carpeta llamada “Documentos”?",
+   o:["Sí — una carpeta puede contener muchos tipos de archivos, incluidas las imágenes","No — Documentos solo puede contener documentos de Word","No — las imágenes solo pueden ir en el escritorio","Solo si primero cambias el nombre de la carpeta"],c:0},
+  {q:"¿Por qué es importante la unidad C:?",
+   o:["Es donde conectas el ratón","Contiene los archivos esenciales del sistema que hacen funcionar la computadora","Conecta la computadora al Wi-Fi","Solo se usa para juegos"],c:1},
+ ]},
+ {title:"4 · Internet: Términos, Navegación y Búsquedas", qs:[
+  {q:"El internet se describe mejor como:",
+   o:["Una sola computadora","Una red mundial de computadoras conectadas entre sí","Un tipo de programa","Una marca de computadora portátil"],c:1},
+  {q:"¿Cuál de estos es un ejemplo de un navegador web?",
+   o:["Microsoft Edge","Microsoft Word","El Explorador de archivos","La Papelera de reciclaje"],c:0},
+  {q:"Una dirección web también se conoce como:",
+   o:["URL","CPU","USB","PDF"],c:0},
+  {q:"Un ícono de candado y una dirección que comienza con “https” significan:",
+   o:["Que el sitio es gratis","Que la conexión es privada y segura","Que el sitio es un juego","Que la página se imprimió"],c:1},
+  {q:"Un banco o una oficina del gobierno de verdad nunca:",
+   o:["Tendrá un sitio web","Te enviará un correo o mensaje pidiendo tu contraseña","Usará https","Tendrá un número de teléfono"],c:1},
+  {q:"Si una ventana emergente advierte que tu computadora está “infectada”, debes:",
+   o:["Llamar al número de inmediato","Cerrar la ventana emergente y no hacer clic dentro de ella","Escribir tu contraseña","Comprar lo que ofrece"],c:1},
+  {q:"Una buena práctica para las contraseñas es que cada una sea:",
+   o:["Corta e igual en todas partes","Larga y diferente para cada cuenta importante","Solo tu nombre","La palabra “contraseña”"],c:1},
+  {q:"Un motor de búsqueda (como Google) es:",
+   o:["Un sitio web que encuentra páginas que coinciden con lo que escribes","Un tipo de impresora","Una carpeta","Una contraseña"],c:0},
+  {q:"Si un sitio web parece sospechoso o te pide información personal de forma inesperada, debes:",
+   o:["Escribir tu información rápidamente","No escribir nada y salir del sitio","Apagar el monitor","Comprar algo para que desaparezca"],c:1},
+  {q:"La dirección oficial del sitio web de Allan Hancock College termina en:",
+   o:[".com",".edu",".net",".shop"],c:1},
+  {q:"¿Qué es una dirección IP?",
+   o:["Un identificador digital para tu dispositivo y tu red","Un tipo de impresora","El nombre de un sitio web","Una contraseña"],c:0},
+  {q:"Verdadero o Falso: Necesitas memorizar la dirección web de cada sitio que usas.",
+   o:["Verdadero","Falso"],c:1},
+ ]},
+ {title:"5 · Procesamiento de Texto (Microsoft Word)", qs:[
+  {q:"Microsoft Word es un:",
+   o:["Navegador web","Procesador de texto (un programa para escribir)","Motor de búsqueda","Tipo de ratón"],c:1},
+  {q:"Antes de poder copiar, cortar o pegar texto, primero debes:",
+   o:["Imprimirlo","Seleccionarlo (resaltarlo)","Borrarlo","Guardarlo"],c:1},
+  {q:"Para asegurarte de no perder tu documento en Word, debes regularmente:",
+   o:["Imprimirlo","Guardarlo","Deshacerlo","Ponerlo en negrita"],c:1},
+  {q:"Dar formato significa cambiar:",
+   o:["Las palabras en sí","Cómo se ve el texto, sin cambiar las palabras","El nombre del archivo","La impresora"],c:1},
+  {q:"El botón Negrita hace que el texto sea:",
+   o:["Inclinado","Más grueso y oscuro","Subrayado","Más pequeño"],c:1},
+  {q:"En Microsoft Word, ¿qué es la cinta de opciones (ribbon)?",
+   o:["La línea que parpadea donde aparece tu texto","La franja de botones y herramientas en la parte superior de la ventana","Un tipo de archivo","El puntero del ratón"],c:1},
+ ]},
+ {title:"Pregunta Final", qs:[
+  {q:"Verdadero o Falso: Las habilidades con la computadora son innatas — o se te dan bien o no.",
+   o:["Verdadero","Falso"],c:1},
+ ]},
+];
+
+/* ---------------- LÓGICA ---------------- */
+const LET=["A","B","C","D"];
+let data = null;
+
+function clone(){
+  return sections.map(s=>({title:s.title, qs:s.qs.map(q=>({q:q.q,o:q.o.slice(),c:q.c}))}));
+}
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function shuffleOptions(q,rng){
+  const correct=q.o[q.c];
+  for(let i=q.o.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[q.o[i],q.o[j]]=[q.o[j],q.o[i]];}
+  q.c=q.o.indexOf(correct);
+}
+
+function render(){
+  data = clone();
+  const rng=mulberry32(28); // semilla fija -> mismo diseño cada vez, posiciones distribuidas
+  data.forEach(s=>{ s.qs.forEach(q=>shuffleOptions(q,rng)); });
+  let n=0, html="";
+  data.forEach(sec=>{
+    html+=`<h2 class="sec">${sec.title} <span class="seccount">— ${sec.qs.length} pregunta${sec.qs.length>1?"s":""}</span></h2>`;
+    html+=`<div class="card">`;
+    sec.qs.forEach(q=>{
+      n++;
+      html+=`<div class="q" data-c="${q.c}"><div class="qtext"><span class="qn">${n}.</span>${q.q}</div>`;
+      q.o.forEach((opt,i)=>{
+        html+=`<label class="opt" data-i="${i}"><input type="radio" name="q${n}" value="${i}">`
+             +`<span class="letter">${LET[i]}.</span> ${opt}<span class="tick"></span></label>`;
+      });
+      html+=`</div>`;
+    });
+    html+=`</div>`;
+  });
+  document.getElementById("mcq").innerHTML=html;
+  document.getElementById("score").textContent="";
+}
+
+function checkAll(){
+  const qs=document.querySelectorAll("#mcq .q");
+  let correct=0;
+  qs.forEach(qd=>{
+    const c=+qd.dataset.c;
+    const opts=qd.querySelectorAll(".opt");
+    const sel=qd.querySelector("input:checked");
+    opts.forEach(o=>{o.classList.remove("correct","wrong");o.querySelector(".tick").textContent="";});
+    opts[c].classList.add("correct");
+    opts[c].querySelector(".tick").textContent="✓ correcta";
+    if(sel){
+      const si=+sel.value;
+      if(si===c){correct++;}
+      else{opts[si].classList.add("wrong");opts[si].querySelector(".tick").textContent="✗ tu respuesta";}
+    }
+  });
+  const pct=Math.round(correct/qs.length*100);
+  document.getElementById("score").textContent=`Puntuación: ${correct} / ${qs.length}  (${pct}%)`;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function resetAll(){ render(); window.scrollTo({top:0,behavior:"smooth"}); }
+
+render();
+</script>
+</body>
+</html>

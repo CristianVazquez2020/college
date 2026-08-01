@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCNC 7100 — Practice Quiz</title>
+<style>
+  :root{
+    --accent:#1F3864; --accent2:#2E4A7d; --light:#EEF1F7; --band:#F4F6FA;
+    --grey:#595959; --line:#C9D3E6; --green:#1E7A46; --greenbg:#E7F4EC;
+    --red:#B23A48; --redbg:#FBECED; --warm:#FBF3E6; --warmbar:#C9A44A; --ink:#22314F;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI",Calibri,Helvetica,Arial,sans-serif;color:#1c2333;
+    margin:0;background:#eef0f5;line-height:1.5;}
+  .wrap{max-width:900px;margin:0 auto;padding:24px 20px 80px;}
+  header.head{border-bottom:4px solid var(--accent);padding-bottom:14px;margin-bottom:8px;}
+  .eyebrow{font-size:13px;font-weight:700;color:var(--grey);letter-spacing:.02em;}
+  h1{color:var(--accent);font-size:30px;margin:4px 0 2px;}
+  .subtitle{color:var(--grey);font-style:italic;font-size:16px;}
+  .card{background:#fff;border:1px solid #e2e6ef;border-radius:10px;padding:18px 20px;
+    margin:16px 0;box-shadow:0 1px 2px rgba(20,30,60,.05);}
+  .note{background:var(--light);border-left:6px solid var(--accent);border-radius:6px;
+    padding:14px 16px;margin:14px 0;font-size:15px;}
+  .note b{color:var(--accent);}
+  table.bd{border-collapse:collapse;width:100%;margin-top:8px;font-size:14px;}
+  table.bd th,table.bd td{border:1px solid var(--line);padding:6px 10px;text-align:left;}
+  table.bd th{background:var(--accent);color:#fff;font-weight:600;}
+  table.bd td.num{text-align:center;width:64px;font-weight:700;color:var(--accent);}
+  h2.sec{color:var(--accent);font-size:22px;margin:34px 0 4px;border-bottom:2px solid var(--line);
+    padding-bottom:6px;}
+  .seccount{font-size:14px;font-weight:400;color:var(--grey);}
+  .q{padding:14px 0;border-bottom:1px solid #eef0f5;}
+  .q:last-child{border-bottom:none;}
+  .qtext{font-weight:600;margin-bottom:8px;}
+  .qtext .qn{color:var(--accent);margin-right:6px;}
+  .opt{display:block;border:1px solid #dde2ec;border-radius:8px;padding:9px 12px;margin:6px 0;
+    cursor:pointer;transition:background .12s,border-color .12s;font-size:15px;}
+  .opt:hover{background:var(--band);}
+  .opt input{margin-right:10px;}
+  .opt.correct{background:var(--greenbg);border-color:var(--green);}
+  .opt.wrong{background:var(--redbg);border-color:var(--red);}
+  .opt .tick{float:right;font-weight:700;}
+  .opt.correct .tick{color:var(--green);}
+  .opt.wrong .tick{color:var(--red);}
+  .bar{position:sticky;top:0;z-index:5;background:#fff;border:1px solid #e2e6ef;border-radius:10px;
+    padding:12px 16px;margin:16px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+    box-shadow:0 2px 6px rgba(20,30,60,.08);}
+  button{font-family:inherit;font-size:15px;font-weight:600;border-radius:8px;border:1px solid var(--accent);
+    padding:9px 16px;cursor:pointer;background:var(--accent);color:#fff;}
+  button.ghost{background:#fff;color:var(--accent);}
+  button:hover{background:var(--accent2);}
+  button.ghost:hover{background:var(--light);}
+  #score{margin-left:auto;font-weight:700;color:var(--accent);font-size:17px;}
+  .pt{padding:14px 0;border-bottom:1px solid #eef0f5;}
+  .pt:last-child{border-bottom:none;}
+  .pttag{display:inline-block;background:var(--light);color:var(--accent);font-size:12px;font-weight:700;
+    border-radius:20px;padding:2px 10px;margin-bottom:6px;}
+  .revealbtn{background:#fff;color:var(--accent);border:1px solid var(--accent);font-size:14px;
+    padding:6px 12px;margin-top:8px;}
+  .model{display:none;margin-top:10px;background:var(--warm);border-left:6px solid var(--warmbar);
+    border-radius:6px;padding:12px 16px;font-size:15px;}
+  .model.show{display:block;}
+  .model b{color:var(--accent);}
+  .model ul{margin:6px 0 0;padding-left:20px;}
+  .model li{margin:4px 0;}
+  footer{color:var(--grey);font-size:13px;text-align:center;margin-top:30px;}
+  @media print{.bar{position:static;box-shadow:none;} button{display:none;} .model{display:block;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <div class="eyebrow">CCNC 7100 — Computers and You: Level 1</div>
+    <h1>Practice Quiz</h1>
+    <div class="subtitle">53 multiple-choice questions</div>
+  </header>
+
+  <div class="note">
+    <b>About this quiz.</b> The multiple-choice questions are grouped by the course's content areas,
+    with the mix reflecting the topics emphasized in class. Choose an answer for each question,
+    then press <b>Check answers</b> to score yourself. The quiz is the same every time it is opened.
+    <table class="bd" aria-label="Question breakdown">
+      <tr><th>Section</th><th>Questions</th></tr>
+      <tr><td>1 · Introduction &amp; Overview</td><td class="num">8</td></tr>
+      <tr><td>2 · Terminology, Keyboarding &amp; Mouse Skills</td><td class="num">15</td></tr>
+      <tr><td>3 · Windows Desktop &amp; Components</td><td class="num">11</td></tr>
+      <tr><td>4 · Internet Terms, Navigation &amp; Searches</td><td class="num">12</td></tr>
+      <tr><td>5 · Word Processing (Microsoft Word)</td><td class="num">6</td></tr>
+      <tr><td>Final question</td><td class="num">1</td></tr>
+    </table>
+  </div>
+
+  <div class="bar">
+    <button onclick="checkAll()">Check answers</button>
+    <button class="ghost" onclick="resetAll()">Reset</button>
+    <span id="score"></span>
+  </div>
+
+  <div id="mcq"></div>
+
+  <footer>CCNC 7100 · Computers and You: Level 1 — Practice Quiz.</footer>
+</div>
+
+<script>
+/* ---------------- MULTIPLE CHOICE DATA ---------------- */
+const sections = [
+ {title:"1 · Introduction & Overview", qs:[
+  {q:"What are the four basic things every computer does?",
+   o:["Type, print, scan, copy","Input, processing, storage, output","Add, subtract, multiply, divide","Start, run, save, close"],c:1},
+  {q:"Which part of the computer does the “thinking,” or processing?",
+   o:["The monitor","The mouse","The CPU","The printer"],c:2},
+  {q:"Showing results on the screen is an example of which step?",
+   o:["Input","Processing","Storage","Output"],c:3},
+  {q:"“PC” stands for:",
+   o:["Processing Center","Personal Computer","Public Computer","Portable Case"],c:1},
+  {q:"What is the “best” type of computer to buy?",
+   o:["Always the most expensive one","Always a desktop","Always the newest one","Whichever one best fits your needs"],c:3},
+  {q:"The physical parts of a computer you can touch are called:",
+   o:["Software","Websites","Hardware","Files"],c:2},
+  {q:"What does the computer's memory (RAM) do?",
+   o:["Keeps your files forever, even when the power is off","Holds whatever you are working on right now, and is cleared when the power goes off","Connects the computer to the internet","Displays pictures on the screen"],c:1},
+  {q:"Where are your files kept permanently, even when the power is off?",
+   o:["In the memory (RAM)","In storage (the hard drive)","On the monitor","In the mouse"],c:1},
+ ]},
+ {title:"2 · Terminology, Keyboarding & Mouse Skills", qs:[
+  {q:"A program (also called an application) is:",
+   o:["A physical part of the computer you can touch","A tool on the computer built to do a job, such as writing or browsing the web","A type of cable","A picture on the desktop"],c:1},
+  {q:"The program used to explore the web is called a:",
+   o:["Word processor","Web browser","Search word","Operating system"],c:1},
+  {q:"“The cloud” refers to:",
+   o:["Weather software","A screen saver","Storing files on distant computers, reached over the internet","A type of keyboard"],c:2},
+  {q:"The arrow that moves on the screen when you move the mouse is called the:",
+   o:["Cursor or pointer","Icon","Button","Tab"],c:0},
+  {q:"Which mouse button is the main one you use most of the time?",
+   o:["The right button","The left button","The scroll wheel","None of them"],c:1},
+  {q:"A double-click is generally used to:",
+   o:["Delete something","Open something","Close the computer","Type a letter"],c:1},
+  {q:"If you run out of desk space while moving the mouse, you should:",
+   o:["Press harder","Restart the computer","Lift the mouse and set it back down in the middle","Give up"],c:2},
+  {q:"A right-click brings up:",
+   o:["A new document","A small menu of options (a context menu)","The internet","A capital letter"],c:1},
+  {q:"What is the scroll wheel on the mouse used for?",
+   o:["Typing numbers","Moving up and down a page","Turning the computer off","Making capital letters"],c:1},
+  {q:"Before typing text into a text box, you must first:",
+   o:["Click on the text box","Restart the computer","Save the file","Print the page"],c:0},
+  {q:"What does the Backspace key do?",
+   o:["Adds a space between words","Erases the character just to the left of the cursor","Makes a capital letter","Saves your work"],c:1},
+  {q:"What is the spacebar used for?",
+   o:["Deleting letters","Inserting a space between words","Making capital letters","Opening a program"],c:1},
+  {q:"To type one capital letter, you:",
+   o:["Press Caps Lock twice","Hold Shift and press the letter","Press the spacebar","Press Enter"],c:1},
+  {q:"The shortcut Ctrl + C means:",
+   o:["Close","Copy","Cancel","Center"],c:1},
+  {q:"The shortcut Ctrl + Z means:",
+   o:["Zoom","Undo","Zero","Close"],c:1},
+ ]},
+ {title:"3 · Windows Desktop & Components", qs:[
+  {q:"The main screen you see when Windows starts is called the:",
+   o:["Desktop","Browser","Folder","Ribbon"],c:0},
+  {q:"The strip along the bottom of the screen is the:",
+   o:["Title bar","Taskbar","Scroll bar","Menu bar"],c:1},
+  {q:"The minimize button:",
+   o:["Closes the program for good","Hides the window while the program keeps running","Deletes the file","Prints the page"],c:1},
+  {q:"To move a window, you click and drag its:",
+   o:["Title bar","Scroll wheel","Icon","Taskbar"],c:0},
+  {q:"The row of words File, Edit, and View near the top of a program is the:",
+   o:["Taskbar","Menu bar","Title bar","Desktop"],c:1},
+  {q:"When you switch to another window, the first window:",
+   o:["Closes","Is deleted","Stays open, ready for you to return","Is printed"],c:2},
+  {q:"The Windows tool you open to browse your folders and files is:",
+   o:["File Explorer","The Recycle Bin","A web browser","The taskbar"],c:0},
+  {q:"The ready-made folder meant to hold the files you create is called:",
+   o:["Downloads","Documents","Trash","Windows"],c:1},
+  {q:"The best habit for not losing your work is to:",
+   o:["Save only when finished","Save early and save often","Never save","Turn off the computer often"],c:1},
+  {q:"Can you save an image (photo) file in the folder named “Documents”?",
+   o:["Yes — a folder can hold many kinds of files, including images","No — Documents can only hold Word documents","No — images can only go on the desktop","Only if you first rename the folder"],c:0},
+  {q:"Why is the C: drive important?",
+   o:["It is where you plug in the mouse","It contains the essential system files that make the computer run","It connects the computer to Wi-Fi","It is only used for games"],c:1},
+ ]},
+ {title:"4 · Internet Terms, Navigation & Searches", qs:[
+  {q:"The internet is best described as:",
+   o:["A single computer","A worldwide network of connected computers","A type of program","A brand of laptop"],c:1},
+  {q:"Which of these is an example of a web browser?",
+   o:["Microsoft Edge","Microsoft Word","File Explorer","The Recycle Bin"],c:0},
+  {q:"A web address is also called a:",
+   o:["URL","CPU","USB","PDF"],c:0},
+  {q:"A padlock icon and an address starting with “https” mean:",
+   o:["The site is free","The connection is private and secure","The site is a game","The page has printed"],c:1},
+  {q:"A real bank or government office will never:",
+   o:["Have a website","Email or message asking for your password","Use https","Have a phone number"],c:1},
+  {q:"If a pop-up warns that your computer is “infected,” you should:",
+   o:["Call the number immediately","Close the pop-up and not click inside it","Type your password","Buy what it offers"],c:1},
+  {q:"A good password practice is to make each one:",
+   o:["Short and the same everywhere","Long and different for each important account","Just your name","The word “password”"],c:1},
+  {q:"A search engine (such as Google) is:",
+   o:["A website that finds pages matching what you type","A type of printer","A folder","A password"],c:0},
+  {q:"If a website looks suspicious or unexpectedly asks for your personal information, you should:",
+   o:["Enter your information quickly","Not enter anything and leave the site","Turn off the monitor","Buy something so it goes away"],c:1},
+  {q:"The official Allan Hancock College website address ends in:",
+   o:[".com",".edu",".net",".shop"],c:1},
+  {q:"What is an IP address?",
+   o:["A digital identifier for your device and network","A type of printer","The name of a website","A password"],c:0},
+  {q:"True or False: You need to memorize the web address of every website you use.",
+   o:["True","False"],c:1},
+ ]},
+ {title:"5 · Word Processing (Microsoft Word)", qs:[
+  {q:"Microsoft Word is a:",
+   o:["Web browser","Word processor (a program for writing)","Search engine","Type of mouse"],c:1},
+  {q:"Before you can copy, cut, or paste text, you must first:",
+   o:["Print it","Select (highlight) it","Delete it","Save it"],c:1},
+  {q:"To make sure you do not lose your document in Word, you should regularly:",
+   o:["Print it","Save it","Undo it","Make it bold"],c:1},
+  {q:"Formatting means changing:",
+   o:["The words themselves","How the text looks, without changing the words","The file name","The printer"],c:1},
+  {q:"The Bold button makes text:",
+   o:["Slanted","Thicker and darker","Underlined","Smaller"],c:1},
+  {q:"In Microsoft Word, what is the ribbon?",
+   o:["The blinking line where your text appears","The strip of buttons and tools across the top of the window","A type of file","The mouse pointer"],c:1},
+ ]},
+ {title:"Final Question", qs:[
+  {q:"True or False: Computer skills come naturally — you are either good at it or you are not.",
+   o:["True","False"],c:1},
+ ]},
+];
+
+/* ---------------- RENDER + LOGIC ---------------- */
+const LET=["A","B","C","D"];
+let data = null;
+
+function clone(){
+  return sections.map(s=>({title:s.title, qs:s.qs.map(q=>({q:q.q,o:q.o.slice(),c:q.c}))}));
+}
+// Fixed-seed generator: the quiz is static (identical every time), but the
+// correct answers are spread across the options rather than in a fixed spot.
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function shuffleOptions(q,rng){
+  const correct=q.o[q.c];
+  for(let i=q.o.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[q.o[i],q.o[j]]=[q.o[j],q.o[i]];}
+  q.c=q.o.indexOf(correct);
+}
+
+function render(){
+  data = clone();
+  const rng=mulberry32(28); // fixed seed -> same layout every load, spread positions
+  data.forEach(s=>{ s.qs.forEach(q=>shuffleOptions(q,rng)); });
+  let n=0, html="";
+  data.forEach(sec=>{
+    html+=`<h2 class="sec">${sec.title} <span class="seccount">— ${sec.qs.length} question${sec.qs.length>1?"s":""}</span></h2>`;
+    html+=`<div class="card">`;
+    sec.qs.forEach(q=>{
+      n++;
+      html+=`<div class="q" data-c="${q.c}"><div class="qtext"><span class="qn">${n}.</span>${q.q}</div>`;
+      q.o.forEach((opt,i)=>{
+        html+=`<label class="opt" data-i="${i}"><input type="radio" name="q${n}" value="${i}">`
+             +`<span class="letter">${LET[i]}.</span> ${opt}<span class="tick"></span></label>`;
+      });
+      html+=`</div>`;
+    });
+    html+=`</div>`;
+  });
+  document.getElementById("mcq").innerHTML=html;
+  document.getElementById("score").textContent="";
+}
+
+function checkAll(){
+  const qs=document.querySelectorAll("#mcq .q");
+  let correct=0;
+  qs.forEach(qd=>{
+    const c=+qd.dataset.c;
+    const opts=qd.querySelectorAll(".opt");
+    const sel=qd.querySelector("input:checked");
+    opts.forEach(o=>{o.classList.remove("correct","wrong");o.querySelector(".tick").textContent="";});
+    opts[c].classList.add("correct");
+    opts[c].querySelector(".tick").textContent="✓ correct";
+    if(sel){
+      const si=+sel.value;
+      if(si===c){correct++;}
+      else{opts[si].classList.add("wrong");opts[si].querySelector(".tick").textContent="✗ your answer";}
+    }
+  });
+  const pct=Math.round(correct/qs.length*100);
+  document.getElementById("score").textContent=`Score: ${correct} / ${qs.length}  (${pct}%)`;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function resetAll(){ render(); window.scrollTo({top:0,behavior:"smooth"}); }
+
+render();
+</script>
+</body>
+</html>
